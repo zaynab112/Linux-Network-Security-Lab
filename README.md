@@ -18,3 +18,19 @@ Storage - I gave the VM 30GB storage to have enough for the software, files and 
 When installing Ubuntu I had two issues:
 - The installation of Ubuntu kept failing as I did not create a virtual hard drive for it to install to. This meant that the system could detect a disk to install Ubuntu so it kept failing. To resolve this I created the virtual drive.
 - Once installed the system kept going to the 'try or install Ubuntu' page. This was because the installer file was still in the system so it kept loading up that file. To resolve this I removed the installer file and kept the virtual disk meaning when the system was starting it started the system correctly. 
+
+## Commands Used
+- hostname - returns the name of the machine
+- ip addr - returns all the VMs interfaces and their ip addresses
+- ip route - returns the routing table
+- ip route show default - only returns the VMs default gateway
+
+## VM details
+- Hostname: linuxlab
+- ip address: 
+- Network Interface: 
+- Default Gateway: 192.168.64.1
+
+## Services and Ports
+
+## What I have learnt
