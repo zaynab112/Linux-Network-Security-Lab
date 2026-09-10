@@ -24,6 +24,8 @@ When installing Ubuntu I had two issues:
 - ip addr - returns all the network interfaces and their ip addresses
 - ip route - returns the routing table
 - ip route show default - only returns the VMs default gateway
+- systemctl list-units --type=service --state=running - returns a list of all the running services
+- ss -tuln - returns all the ports that are listening using tcp or udp
 
 ## VM details
 - Hostname: linuxlab
@@ -32,6 +34,7 @@ When installing Ubuntu I had two issues:
 - Default Gateway: 192.168.64.1
 
 ## Services and Ports
+
 
 ## What I have learnt
 I have learnt what virtualisation and emulation is. Virtualisation is used when the architecture of the VM is the same as the computers processor and emulation is used when the computers processor is different to the VMs architecture so the system needs to copy the behaviour of the VMs system. I used virtualisation because my mac uses apple silicone which is arm based and used the arm based ubuntu server so the VM can run using my macs processor.
