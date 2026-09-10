@@ -1,7 +1,7 @@
 # Linux-Network-Security-Lab
 A practical lab demonstrating Linux administration, Networking, Service discovery and Security hardening.
 
-The objective of this project to build a Linux environment and demonstrate Linux administration, networking, discovering services and improve security.
+The objective of this project is to build a Linux environment and demonstrate Linux administration, networking, discovering services and improve security.
 
 ## Creating Linux VM
 
