@@ -34,6 +34,15 @@ When installing Ubuntu I had two issues:
 - Network Interface: enp0s1
 - Default Gateway: 192.168.64.1
 
+## IP address and Default Gateway
+
+<img width="839" height="319" alt="Screenshot 2026-09-09 at 13 02 17" src="https://github.com/user-attachments/assets/35ed0943-ec66-4c2c-870b-542a512fc19e" />
+
+This shows the result of ip addr. The output shows 2 interfaces which is the loopback address and the virtual machines network interface. The output shows the virtual machine's IPv4 address which is 192.168.64.2 and the IPv6 addresses. The output also shows the netwrok interface name which is enp0s1 and the broadcast addresss.
+
+<img width="665" height="100" alt="Screenshot 2026-09-09 at 13 16 47" src="https://github.com/user-attachments/assets/0505fe19-97c4-47d0-8781-545770cf4d6e" />
+
+
 ## Services and Ports
 <img width="802" height="334" alt="Screenshot 2026-09-10 at 16 04 05" src="https://github.com/user-attachments/assets/75fd90e1-9850-46e2-9f23-4c40a37c8c8f" />
 
