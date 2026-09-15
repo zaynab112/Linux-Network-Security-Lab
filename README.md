@@ -42,6 +42,8 @@ This shows the result of ip addr. The output shows 2 interfaces which is the loo
 
 <img width="665" height="100" alt="Screenshot 2026-09-09 at 13 16 47" src="https://github.com/user-attachments/assets/0505fe19-97c4-47d0-8781-545770cf4d6e" />
 
+This shows the result of the command ip route which shows the ubuntu server's routing table. This output shows the VMs default gateway and it also shows the local network. The screenshot also shows the result of the command ip route show default. This command only returns the default gateway for the VM.
+
 
 ## Services and Ports
 <img width="802" height="334" alt="Screenshot 2026-09-10 at 16 04 05" src="https://github.com/user-attachments/assets/75fd90e1-9850-46e2-9f23-4c40a37c8c8f" />
