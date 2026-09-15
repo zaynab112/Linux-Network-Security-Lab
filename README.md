@@ -58,6 +58,8 @@ I have learnt what virtualisation and emulation is. Virtualisation is when the V
 
 I also learnt that the command ip addr returns all the network interfaces and the ip addresses. The output showed 2 interfaces lo and enp0s1. The second interface is the virtual network interface which is used by the VM and is ready to be used. The different details of each interface are also shown like the mtu which is the largest packet size that can be sent over the network, qlen which is how many packets can be queued and the state of the interface.
 
+I have also learnt what the loopback address is. The loopback address is an ip address that is used for a computer to send network packets to itself. This is used for troubleshooting and testing the computers network services
+
 ip route returns the routing table which shows the routing information for the interface. It shows the interface default gateway which is the address that is used to communicate to other networks. ip route show default returns only the interfaces default gateway.
 
 I also learnt that to see all the services on the system the command systemctl is used and to filter for the running services the state flag is used. To see all the ports the command 'ss' is used with different options to filter the output. The options -t and -u filters for the TCP and UDP ports and the option -l filters the ports for only the listening ports. The option -n replaces the port names in the output with their port numbers and the option -p is used to list the names of the processes using the ports.
