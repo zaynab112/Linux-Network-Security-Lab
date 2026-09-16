@@ -61,6 +61,13 @@ This shows the result of the command ping. Ping is used to test if a computer ca
 
 This shows the result of the nmap scan using the -sV option. This scan is used to scan the 1000 common ports that are used and using the -sV option means it will try to find the version of the service that is running. The results shows that there was 1 TCP port open which was port 22. It also shows that SSH is running on that port. The scan also listened in on the port to find the version of SSH that was running and found that the port was running openSSH 10.2p1 ubuntu 2ubuntu3.6 of SSH. The scan also identified the operating system used by the VM which was Linux. The scan also shows that there were 999 ports that was closed because there was nothing running on the ports.
 
+<img width="642" height="370" alt="Screenshot 2026-09-16 at 16 22 13" src="https://github.com/user-attachments/assets/b69060cd-77b0-445b-a5e8-eb7d255bab0f" />
+
+This shows the result of the nmap scan using the -p- option. The -p- option is used to scan all 65535 ports. I used this incase there was other ports outside of the 1000 ports that was already scanned. The results shows that even after scanning all the other ports there was only 1 TCP port open. The results of the nmap scan using the -p option is the same result as the nmap scan without the -p option.
+
+## Security Perspective
+An exposed port is a port that is left open and can be accessed by the public. Having an open port gives an attacker an entry point into the system. The service on the port may be outdated so the attacker will be able to find vulnerabilities that are already known for that version and use it to access the system. Ports that 
+
 ## Commands Used
 - ping 192.168.64.2
 - nmap -sV 192.168.64.2
