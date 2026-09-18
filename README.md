@@ -40,6 +40,7 @@ This shows the result of the command ip route which shows the ubuntu server's ro
 This shows the output of the command systemctl using the state flag which filters the results for only the services that are currently running on the system. Without the state flag the output would include all the services on the system even if they're not running. The output shows the name of the service, the state of the service and a description of what the service does.
 
 <img width="1194" height="205" alt="Screenshot 2026-09-10 at 16 17 13" src="https://github.com/user-attachments/assets/3222ff26-be1d-4cef-8061-56360e4331ed" />
+
 This shows the output of the command ss with the options -t, -u, -l, -n. The options filter for the listening ports that are either TCP or UDP ports. The output shows the type of ports, the state of the ports and the port numbers. The output also shows how many packets have been recievd and how many packets are in queue to be sent. In this case no packets have been received by either the TCP or UDP ports and only the TCP ports have packets in queue to be sent. It also shows that DNS uses both TCP and UDP ports.
 
 ### Commands Used
@@ -54,6 +55,7 @@ This shows the output of the command ss with the options -t, -u, -l, -n. The opt
 ## Nmap Scanning
 ### Connectivity Testing
 <img width="483" height="361" alt="Screenshot 2026-09-15 at 16 27 12" src="https://github.com/user-attachments/assets/6a55b460-7b28-4983-a501-4363f871ed11" />
+
 This shows the result of the command ping. Ping is used to test if a computer can communicate with a another computer by sending packets to the computer. This result shows that there 19 packets were sent from my mac and 19 packets were received by the VM. This means that my mac can communicate with the VM.
 
 ### Nmap Scan 
@@ -83,7 +85,7 @@ The nmap scan showed that only port 22 was open and running the SSH service whil
 ## Ubuntu Firewall
 The Ubuntu firewall is called UFW and comes with Ubuntu but is not enabled by default. The purpose of the firewall is to control incoming and outgoing traffic on a computer to prevent unauthorised access. The traffic is controlled by the rules that are set to deny or allow traffic. The firewall can be used allow or deny traffic on specific ports or from specific ip addresses. A firewall can also be used to block or allow traffic from entire networks.
 
-To check the status of the Ubuntu firewall the command sudo ufw status is used. Thos shows the whether the firewall is active or inactive and it shows some of the firewalls rules. To see more information about the firewall like the rules for incoming or outgoing traffic the command sudo ufw status verbose is used. sudo is used to stop everyone from seeing how the firewall is configured and is used to only allow specific people to see how the firewall is configured.
+To check the status of the Ubuntu firewall the command sudo ufw status is used. This shows the whether the firewall is active or inactive and it shows some of the firewalls rules. To see more information about the firewall like the rules for incoming or outgoing traffic the command sudo ufw status verbose is used. sudo is used to stop everyone from seeing how the firewall is configured and is used to only allow specific people to see how the firewall is configured.
 
 The firewall can be used to restrict access to services by allowing or blocking traffic based on the port numbers or ip addresses. The firewall can block traffic to a port or aloow the traffic to the port. It can also be used to stop traffic from specific ip addresses to a specific port.
 
