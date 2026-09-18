@@ -101,3 +101,5 @@ I also learnt that to see all the services on the system the command systemctl i
 I have learnt that doing the standard nmap scan by itself it only scans 1000 ports and only tells you the port number and the service running on the port. To see the version of the service running on the ports the option -sV needs to be used. The scan can be used to scan all 65535 ports to check which ports are opened the option -p is used. 
 
 I have also learnt that the amount of ports that can be seen using the nmap scan is different to the ss command. The results of the nmap scan showed less ports listening than the ss command because the nmap scan scans a machine from a different machine to see which ports are open whilst the ss command is used on the same machine that is being scanned and more listening ports can be seen.
+
+I have also learnt that firewalls can be used to block or allow traffic based on ip addresses, networks or ports. I have learnt to check the status of the firewall and rules the command sudo ufw status is used and to see more information about the rules of the firewall the term verbose is used with the command.
