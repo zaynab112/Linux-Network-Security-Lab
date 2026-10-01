@@ -25,7 +25,7 @@ When installing Ubuntu I had two issues:
 - Network Interface: enp0s1
 - Default Gateway: 192.168.64.1
 
-### Identifying IP addresses, Services and Ports
+## Identifying IP addresses, Services and Ports
 ### IP address and Default Gateway
 <img width="839" height="319" alt="Screenshot 2026-09-09 at 13 02 17" src="https://github.com/user-attachments/assets/35ed0943-ec66-4c2c-870b-542a512fc19e" />
 
@@ -72,22 +72,46 @@ This shows the result of the nmap scan using the -p- option. The -p- option is u
 - nmap -sV 192.168.64.2
 - nmap -p- -sV 192.168.74.2
 
-## Why an Exposed Service Matters From a Security Perspective
+### Why an Exposed Service Matters From a Security Perspective
 An exposed port is a port that is left open and can be accessed by the public and an exposed port means that the service running on the port is exposed and can be accessed by the public. The more ports that are exposed gives an attacker more ways to get into the system. The service running on the exposed parts may be an outdated version or not set up properly. Running an outdated version of a service means that an attacker could find any vulnerabilities that are known for that version and use it to access the system. Ports that allow users to login or remote access could be vulnerable to brute force attacks.
 
 The VM only has one port open to the public which is port 22 and runs SSH. SSH allows computers to securely access servers and login remotely. The SSH port being left exposed means that an attacker could perform brute force attacks to attempt to access the servers remotely. However because the VM only has one port exposed means that there is only way for an attacker to gain access.
 
-## Compare Nmap and ss
+### Compare Nmap and ss
 The nmap scan was done from my mac to identify the ports that can be seen from outside the VM and the ss command was run from inside the VM to look for any listening ports. The two commands returned different results when identifying the open ports. The nmap scan that was done from my mac revealed only 1 TCP port and the ss command that was done from inside the VM revealed that there was multiple ports open both UDP and TCP ports.
 
 The nmap scan showed that only port 22 was open and running the SSH service whilst the results of the ss command showed that there was multiple UDP and TCP ports were listening. The ss command showed that the ports that were listening were ports 53 and 22 on both UDP and TCP ports and includes are the DNS and SSH ports. The ss command also showed that the VM was listening on the UDP port 68.
 
-## Ubuntu Firewall
+### Ubuntu Firewall
 The Ubuntu firewall is called UFW and comes with Ubuntu but is not enabled by default. The purpose of the firewall is to control incoming and outgoing traffic on a computer to prevent unauthorised access. The traffic is controlled by the rules that are set to deny or allow traffic. The firewall can be used allow or deny traffic on specific ports or from specific ip addresses. A firewall can also be used to block or allow traffic from entire networks.
 
 To check the status of the Ubuntu firewall the command sudo ufw status is used. This shows the whether the firewall is active or inactive and it shows some of the firewalls rules. To see more information about the firewall like the rules for incoming or outgoing traffic the command sudo ufw status verbose is used. sudo is used to stop everyone from seeing how the firewall is configured and is used to only allow specific people to see how the firewall is configured.
 
 The firewall can be used to restrict access to services by allowing or blocking traffic based on the port numbers or ip addresses. The firewall can block traffic to a port or aloow the traffic to the port. It can also be used to stop traffic from specific ip addresses to a specific port.
+
+## Creating a new user
+sudo useradd -m bob
+useradd was used to create a new user for the system. The option -m was used to create the home directory of the new user when creating the new user.
+sudo passwd bob
+This command was used to create a password for the new users account.
+
+## Securing SSH port
+
+### Changing permitrootlogin
+
+<img width="147" height="90" alt="Screenshot 2026-10-01 at 21 22 54" src="https://github.com/user-attachments/assets/404e319d-f829-4bf1-9bbc-4273022149a6" />
+
+sudo nano /etc/ssh/sshd_config opens file in linux's text editor
+
+sudo sshd -t checks config file for typos or syntax errors
+
+sudo systemctl restart ssh restarts the ssh port and saves the changes that were made
+
+connected from mac terminal
+
+sudo whoami runs whoami as root
+
+
 
 ## What I have learnt
 I have learnt what virtualisation and emulation is. Virtualisation is when the VM runs using the computers physical cpu and emulation is when the software copies and acts as a different cpu to the computer running the software. I used virtualisation because my mac uses apple silicon which is arm based and used the arm based ubuntu server so the VM can run using my macs processor.
