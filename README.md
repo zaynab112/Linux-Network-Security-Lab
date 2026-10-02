@@ -91,9 +91,7 @@ The firewall can be used to restrict access to services by allowing or blocking 
 
 ## Creating a new user
 sudo useradd -m bob
-useradd was used to create a new user for the system. The option -m was used to create the home directory of the new user when creating the new user.
-sudo passwd bob
-This command was used to create a password for the new users account.
+I created a new user bob using sudo useradd -m bob. the useradd creates a new user but does not create a home directory for the user so the option -m was used to create a home directory. I then used sudo passwd bob to set a password for the user bob.
 
 ## Securing SSH port
 
@@ -101,16 +99,26 @@ This command was used to create a password for the new users account.
 
 <img width="147" height="90" alt="Screenshot 2026-10-01 at 21 22 54" src="https://github.com/user-attachments/assets/404e319d-f829-4bf1-9bbc-4273022149a6" />
 
-sudo nano /etc/ssh/sshd_config opens file in linux's text editor
+I changed the setting permitrootlogin to no as this stops users from being able to log in through the SSH port as the root. This makes users log in as standard users and any users permitted to use sudo will use sudo to perform commands with root access. To do this from the VM I used the command sudo nano /etc/ssh/sshd_config which opens the SSH config file in nano. Nano is linux's text editor which allows you to make changes to files. I found permitrootlogin and changed the permission to no. 
 
-sudo sshd -t checks config file for typos or syntax errors
+<img width="247" height="50" alt="Screenshot 2026-10-01 at 21 27 31" src="https://github.com/user-attachments/assets/c6b85bc7-e3a2-4038-8aa3-cbf6e8100deb" />
 
-sudo systemctl restart ssh restarts the ssh port and saves the changes that were made
+Before saving any changes to the file to make sure I didn't add any typos to the file I used sudo sshd -t. This opens the SSH config file and run the file in test mode to make sure there is no errors in the file. It returned no output meaning that there was no errors. If there was any errors it return the line that has an error but would not modify it. I then restarted the SSH port to save the changes to the config file using the command sudo systemctl restart ssh.
 
-connected from mac terminal
+<img width="489" height="527" alt="Screenshot 2026-10-01 at 21 30 56" src="https://github.com/user-attachments/assets/e36416fc-08fa-4cc7-8890-30a74028b2b7" />
 
-sudo whoami runs whoami as root
+I then used my mac terminal to access the VM through the SSH port and used the command sudo whoami which runs whoami as the root to make sure that the root can be accessed by a standard user.
 
+<img width="458" height="98" alt="Screenshot 2026-10-01 at 21 32 18" src="https://github.com/user-attachments/assets/4bcb46da-a0c1-46e0-8bed-c120c7c8291e" />
+
+I then attempted to access the VM through the SSH port as the root user to make sure that this was not allowed and it denied the permission.
+
+### Commands used
+
+- sudo nano /etc/ssh/sshd_config - opens file in linux's text editor
+- sudo sshd -t - checks config file for typos or syntax errors
+- sudo systemctl restart ssh - restarts the ssh port and saves the changes that were made
+- ssh user@ip address - connects to the system through ssh port.
 
 
 ## What I have learnt
@@ -129,3 +137,5 @@ I have learnt that doing the standard nmap scan by itself it only scans 1000 por
 I have also learnt that the amount of ports that can be seen using the nmap scan is different to the ss command. The results of the nmap scan showed less ports listening than the ss command because the nmap scan scans a machine from a different machine to see which ports are open whilst the ss command is used on the same machine that is being scanned and more listening ports can be seen.
 
 I have also learnt that firewalls can be used to block or allow traffic based on ip addresses, networks or ports. I have learnt to check the status of the firewall and rules the command sudo ufw status is used and to see more information about the rules of the firewall the term verbose is used with the command.
+
+I have learnt that in linux the text editor to make changes to a file is nano. I have also learnt the the configuration file for ssh is sshd which runs in the background when the SSH port is open to allow access and perform commands. I have also learnt that a file can be run in test mode to make sure that there are no errors in the file without modifying it. I have learnt how to connect to the VM through the SSH port through a different system.
