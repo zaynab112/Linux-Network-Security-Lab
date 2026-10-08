@@ -120,6 +120,15 @@ I then attempted to access the VM through the SSH port as the root user to make 
 - sudo systemctl restart ssh - restarts the ssh port and saves the changes that were made
 - ssh user@ip address - connects to the system through ssh port.
 
+## Authentication log investigation
+ssh logs authentication attempts in the /var/log/auth.log file.
+
+<img width="1146" height="323" alt="Screenshot 2026-10-08 at 19 04 04" src="https://github.com/user-attachments/assets/5e6f0278-e358-42fb-8426-d88caa2af424" />
+
+The command journalctl -u ssh -n 20 shows the logs for ssh. journalctl is used to show the logs for different services. To filter for a specific service the option -u is used. The command journalctl -u ssh was used to display the logs for ssh and the option -n 20 was used with it so it only shows the last 20 lines rather than all of the lines. The result shows that 2 users attempted to log in through ssh and it shows the failed attempts and successful attempts. For each log it shows the date, time and the hostname. It also shows the process that was being used and it shows the username that was attempting to log in and the source ip address and port number which is where the login attempts were happening.
+
+**if logs in /var/log/auth.log why does it only show records when i log in thru vm i can only view the ssh logs when using journalctl.**
+
 ## What I have learnt
 I have learnt what virtualisation and emulation is. Virtualisation is when the VM runs using the computers physical cpu and emulation is when the software copies and acts as a different cpu to the computer running the software. I used virtualisation because my mac uses apple silicon which is arm based and used the arm based ubuntu server so the VM can run using my macs processor.
 
