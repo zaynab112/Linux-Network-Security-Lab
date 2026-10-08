@@ -120,7 +120,6 @@ I then attempted to access the VM through the SSH port as the root user to make 
 - sudo systemctl restart ssh - restarts the ssh port and saves the changes that were made
 - ssh user@ip address - connects to the system through ssh port.
 
-
 ## What I have learnt
 I have learnt what virtualisation and emulation is. Virtualisation is when the VM runs using the computers physical cpu and emulation is when the software copies and acts as a different cpu to the computer running the software. I used virtualisation because my mac uses apple silicon which is arm based and used the arm based ubuntu server so the VM can run using my macs processor.
 
